@@ -1,10 +1,20 @@
-import React from "react";
-import { positions } from "../data/data";
+import React,{useState,useEffect}from "react";
+import axios from 'axios';  
+
+
 
 const Positions = () => {
+    const [allPositions,setAllPositions] = useState([]);
+    useEffect(()=>{
+      //this axios.get will connect to link in backend
+      axios.get("http://localhost:3002/allPositions").then((res)=>{
+        setAllPositions(res.data);
+        console.log(res.data);
+      });
+    },[]);
   return (
     <>
-      <h3 className="title">Positions ({positions.length})</h3>
+      <h3 className="title">Positions ({allPositions.length})</h3>
 
       <div className="order-table">
         <table>
@@ -20,7 +30,7 @@ const Positions = () => {
           
 
 
-          {positions.map((stock,index)=>{   {/* creating temporary variables to calculate certain data that should be displayed*/}
+          {allPositions.map((stock,index)=>{   {/* creating temporary variables to calculate certain data that should be displayed*/}
                 const curValue=stock.price* stock.qty;
                 const isProfit = curValue- stock.avg * stock.qty >=0.0;  
                 const profClass =isProfit ? "profit" :"loss";  {/*profit class will be detect if it is profit or loss , if profit display green otherwise by red */}
