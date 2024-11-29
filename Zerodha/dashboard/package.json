@@ -2,6 +2,11 @@
   "name": "dashboard",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js", 
+  "exports": {
+    "import": "./src/components/Dashboard.js", 
+    "require": "./index.js" 
+  },
   "dependencies": {
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
