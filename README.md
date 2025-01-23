@@ -5,7 +5,7 @@ A simple and responsive Spotify Clone frontend built with **HTML** and **CSS**.
 ## Features  
 
 
-- Responsive design for all devices.  
+- Responsive design for all devices.
 - Cross-browser compatibility.  
 
 ## Tech Stack :
